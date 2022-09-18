@@ -51,13 +51,14 @@
           <li class="nav-item">
             <a class="nav-link active text-dark" aria-current="page" href="/barang">Data Barang</a>
           </li>
+            <% if(user.level === "Admin") { %>
             <li class="nav-item">
               <a class="nav-link text-dark" href="/ruangan">Data Ruangan</a>
             </li>
-            
-              <li class="nav-item">
-                <a class="nav-link text-dark" href="/petugas">Data Petugas</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/petugas">Data Petugas</a>
+            </li>
+          <% } %>
 
         </ul>
         <hr />

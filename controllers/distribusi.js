@@ -61,7 +61,7 @@ module.exports = {
                 }else if(total !== Number(jumlah)){
                     return res.status(400).send("<script language='javascript' type='text/javascript'>alert('Jumlah Barang dan Jumlah Kondisi Tidak Sama');window.location.href='/distribusi/pilih';</script>");
                 }else if(id_ruangan === "Pilih Ruangan"){
-                    return res.status(400).send("<script language='javascript' type='text/javascript'>alert('Belum Pilih Ruangan');window.location.href='/distribusi/pilih';</script>");
+                    return res.status(400).send("<script language='javascript' type='text/javascript'>alert('Belum Pilih Ruangan');history.back();</script>");
                 }
         
                 var current = new Date();
