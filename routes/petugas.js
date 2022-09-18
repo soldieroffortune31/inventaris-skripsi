@@ -20,5 +20,6 @@ router.get('/update/:id',level, petugas.renderpetugas);
 router.get('/updatepassword',restrict, petugas.renderpassword);
 router.post('/update',restrict, petugas.updatepassword);
 router.get('/delete/:id', level, petugas.deletepetugas);
+router.post('/api/inputpetugas', petugas.createpetugas);
 
 module.exports = router;

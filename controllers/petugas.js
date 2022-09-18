@@ -3,6 +3,27 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
 
+    createpetugas : async (req, res) => {
+        const data = await petugas.findOne({where : {username : req.body.username}});
+        if(data){
+            return res.status(400).json({message : 'username sudah ada'})
+        }
+        if(req.body.password !== req.body.repeat_password) return res.status(400).json({message : 'password tidak sama'})
+
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+            
+            petugas.create({
+                nama_petugas : req.body.nama_petugas,
+                username : req.body.username,
+                password : hash,
+                level : req.body.level
+            }).then(result => {
+                // res.status(200).json({code : 200, message : "Data Berhasil Disimpan"});
+                res.status(200).json({messsage : "Data Berhasil Disimpan", data : result})
+            })
+        })
+    },
+
     inputPetugas : async (req,res) => {
         const user = req.user.dataValues;
         res.status(200).render('inputdatapetugas', {user});
